@@ -1,0 +1,30 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Tile3Tile11_Using_MoveByOffsetMethod {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		
+driver.get("file:///C://Users//windows//Downloads//Selectable.html");
+		
+		WebElement three = driver.findElement(By.name("three"));
+		WebElement eleven = driver.findElement(By.name("eleven"));
+		
+		System.out.println("X cordinate: " + three.getLocation().x + "\n" +"Y cordinate : " + three.getLocation().y);
+		
+		Actions builder = new Actions(driver); 
+		
+		builder.moveByOffset(three.getLocation().x+1, three.getLocation().y+1).click();
+		builder.perform();
+		Thread.sleep(1000);
+		builder.click(eleven);
+		builder.perform();
+
+	}
+
+}

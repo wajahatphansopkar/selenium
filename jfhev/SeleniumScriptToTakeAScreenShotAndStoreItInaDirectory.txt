@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.google.common.io.Files;
+
+public class SeleniumScriptToTakeScreenshot {
+
+	public static void main(String[] args) throws IOException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		
+ 		driver.get("https://demo.guru99.com/test/newtours/index.php");
+ 		TakesScreenshot screenShot=((TakesScreenshot)driver);
+ 		File srcFile=screenShot.getScreenshotAs(OutputType.FILE);
+ 		System.out.println(srcFile.getAbsolutePath());
+ 		File desFile=new File("D:\\MCA SY 42\\screenshot8639126273638467188.png");
+ 		Files.copy(srcFile, desFile);
+ 		
+	}
+
+}

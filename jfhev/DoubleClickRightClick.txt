@@ -1,0 +1,53 @@
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class DoubleClickAndRightclickOnDemoSite {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		
+driver.get("https://www.demo.guru99.com/test/simple_context_menu.html");
+		
+		
+	WebElement rightClick = driver.findElement(By.tagName("span"));		
+		
+		WebElement dblclick = driver.findElement(By.tagName("button"));
+		
+		WebElement edit = driver.findElement(By.className("context-menu-item context-menu-icon context-menu-icon-cut"));
+		
+		
+		Actions builder = new Actions(driver);
+		
+		
+		
+		builder.contextClick(rightClick).click(edit);
+	builder.perform();
+		
+		Alert simpleAlert = driver.switchTo().alert();
+		Thread.sleep(2000);
+		simpleAlert.accept();
+		Thread.sleep(2000);
+		
+		
+		builder.moveToElement(dblclick).doubleClick();
+		builder.perform();
+
+		Alert simpleAlert1 = driver.switchTo().alert();
+		Thread.sleep(1000);
+		simpleAlert1.accept();
+		Thread.sleep(5000);
+		WebElement dblClick=driver.findElement(By.xpath("/button[@ondbclick='myFunction()']"));
+		
+		builder.doubleClick(dblclick).perform();
+		Thread.sleep(1000);
+		simpleAlert.accept();
+		
+
+	}
+
+}

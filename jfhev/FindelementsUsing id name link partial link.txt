@@ -1,0 +1,33 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class findelementsBy_using_Id_name_link_partialLink {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\\\browserdrivers//chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/newtours");
+		
+	//By Name	
+	WebElement name1=driver.findElement(By.name("userName"));
+	name1.sendKeys("wajhata");
+	Thread.sleep(5000);
+	name1.clear();
+	
+	//ByLink
+	WebElement links=driver.findElement(By.linkText("CONTACT"));
+	links.click();
+	
+	
+	//BY Partial Link
+	
+	WebElement partiallinks=driver.findElement(By.partialLinkText("Fli"));
+	partiallinks.click();
+	
+	
+
+	}
+
+}

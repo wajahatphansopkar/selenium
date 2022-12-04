@@ -1,0 +1,21 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class InvokeFirefoxbrowserGetPageTitleNameandTitleLength {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\browserdrivers\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.co.in/");
+		String title=driver.getTitle();
+		System.out.println("Title of Page:"+title);
+		System.out.println("Length of title:"+title.length());
+		String currentUrl=driver.getCurrentUrl();
+		System.out.println("Url of page:"+currentUrl);
+		String pageSource=driver.getPageSource();
+		System.out.println("Page length:"+pageSource.length());
+		driver.quit();
+
+	}
+
+}

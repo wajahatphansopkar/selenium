@@ -1,0 +1,53 @@
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HandlingAlertonDemoqaalerts {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		WebElement btn1=driver.findElement(By.id("alertButton"));   
+		btn1.click(); 
+		  	Alert alert1=driver.switchTo().alert(); 
+		  	Thread.sleep(3000); 
+		  	String alert1Text=alert1.getText(); 
+	  	System.out.println("Alert 1 Text is: "+alert1Text);   	
+	  	alert1.accept(); 
+	  	 
+		  	Thread.sleep(3000); 
+	  	WebElement btn2=driver.findElement(By.id("timerAlertButton"));   	
+	  	btn2.click(); 
+		  	Thread.sleep(7000); 
+	  	 
+		  	Alert alert2=driver.switchTo().alert(); 
+		  	Thread.sleep(3000); 
+		  	String alert2Text=alert2.getText(); 
+	  	System.out.println("Alert 2 Text is: "+alert2Text);   	
+	  	alert2.accept(); 
+	  	 
+		  	Thread.sleep(3000); 
+	  	WebElement btn3=driver.findElement(By.id("confirmButton"));   	
+	  	btn3.click(); 
+	  	 
+		  	Alert alert3=driver.switchTo().alert(); 
+		  	Thread.sleep(3000); 
+		  	String alert3Text=alert2.getText(); 
+	  	System.out.println("Alert 3 Text is: "+alert3Text);   	
+	  	alert3.accept(); 
+	  	 
+		  	Thread.sleep(3000); 
+	  	WebElement btn4=driver.findElement(By.id("promtButton"));   	
+	  	btn4.click(); 
+	  	 
+	  	Alert alert4=driver.switchTo().alert();   	
+	  	Thread.sleep(3000);   	
+	  	alert4.sendKeys("26");   	
+	  	Thread.sleep(3000);   	
+	  	alert3.accept(); 
+
+	}
+
+}

@@ -1,0 +1,28 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class SeleniumScriptToSelectOptionsFromdropDownList {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		driver.get("https://jsbin.com/osebed/2");
+ 		Select fruits=new Select(driver.findElement(By.id("fruits")));
+ 		fruits.selectByIndex(3);
+ 		System.out.println(fruits.getFirstSelectedOption().getText());
+ 		fruits.deselectByVisibleText("Grape");
+ 		fruits.deselectByValue("apple");
+ 		List<WebElement> selected_items=fruits.getAllSelectedOptions();
+ 		for(int i=0;i<selected_items.size();i++)
+ 		{
+ 			System.out.println(selected_items.get(i).getText());
+ 		}
+ 			System.out.println(fruits.isMultiple());
+	}
+
+}

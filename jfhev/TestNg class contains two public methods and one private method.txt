@@ -1,0 +1,37 @@
+
+
+publicprivatemethod class:-
+
+
+
+package BeforeAfter;
+
+import org.testng.annotations.Test;
+
+public class publicprivatemethod {
+  @Test
+  public void publicMethod() {
+	  System.out.println("This is public method");
+  }
+  private void privateMethod() {
+	  System.out.println("This is private method");
+  }
+}
+
+
+
+
+publicprivate.xml :-
+
+
+
+<suite name="BeforeAfter">
+<test name="publicprivatemethod">
+<classes>
+<class name="BeforeAfter.publicprivatemethod"/>
+</classes>
+
+</test>
+
+
+</suite>

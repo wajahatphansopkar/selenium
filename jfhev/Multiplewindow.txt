@@ -1,0 +1,26 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FlightReservation_PopUpWindowthatOpensAfterClickingOnHotelsHyperlink {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+
+ 		WebDriver driver1 = new ChromeDriver(); 
+ 		driver.get("https://demoqa.com/browser-windows"); 
+ 	 	driver1.get("https://demoqa.com/sample"); 
+	 	 
+ 	 	WebElement new_windowButton = driver.findElement(By.id("windowButton")); 
+ 	 	new_windowButton.click(); 
+	 	 
+ 	 	WebElement windowHeading = driver1.findElement(By.id("sampleHeading")); 
+ 	 	System.out.println("Heading is : " + windowHeading.getText()); 
+ 		
+ 		
+
+	}
+
+}

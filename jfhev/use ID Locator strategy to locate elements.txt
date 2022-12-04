@@ -1,0 +1,31 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Using_Name_IDLocator_strategy_to_locate_Elements {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\browserdrivers\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/login.html");
+
+		
+		//By ID
+		
+		WebElement ids=driver.findElement(By.id("email"));
+		ids.sendKeys("wajahataxel@gmail.com");
+		Thread.sleep(5000);
+		
+		WebElement ids1=driver.findElement(By.id("passwd"));
+		ids1.sendKeys("wajahat");
+		Thread.sleep(5000);
+		
+		
+		WebElement ids2=driver.findElement(By.id("SubmitLogin"));
+		ids2.click();
+		
+		
+	}
+
+}

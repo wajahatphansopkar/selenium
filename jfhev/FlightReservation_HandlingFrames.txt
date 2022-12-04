@@ -1,0 +1,41 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FlightReservation_HandlingFrames {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+
+driver.get("file:///D:/Flight_Reservation/flight_reservation.html"); 
+	 	 
+//	 	Switching to frame1 using index  	 	
+driver.switchTo().frame(0); 
+	 	 
+ 	 	WebElement frame1_heading = driver.findElement(By.id("heading1")); 
+	 	System.out.println("Heading of frame 1 is : " + frame1_heading.getText()); 
+	 	 
+ 	 	driver.switchTo().defaultContent(); 
+ 	 	System.out.println("Title of main window is : " + driver.getTitle()); 
+ 	 	System.out.println("Switched to Main Window"); 
+	 	 
+//	 	Switching to Frame 2  	 	
+ 	 	driver.switchTo().frame("IF2"); 
+ 	 	WebElement frame2_heading = driver.findElement(By.id("heading2")); 
+	 	System.out.println("Heading of frame 2 is : " + frame2_heading.getText()); 
+	 	 
+//	 	Switching to Frame 2 child   	 	
+	 	driver.switchTo().frame(0); 
+ 	 	System.out.println("Switching to iframe child inside frame 2"); 
+	 	WebElement frame2_child = driver.findElement(By.id("heading3"));  	 	
+	 	System.out.println("Heading of frame 2 child is : " + frame2_child.getText()); 
+	 	 
+ 	 	driver.switchTo().defaultContent(); 
+ 	 	System.out.println("Title of main window is : " + driver.getTitle()); 
+ 	 	System.out.println("Switched to Main Window");
+
+	}
+
+}

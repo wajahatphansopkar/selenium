@@ -1,0 +1,55 @@
+
+firstTestClass:-
+
+
+package firstpackage;
+
+import org.testng.annotations.Test;
+
+public class FirstTestClass {
+  @Test
+  public void f() {
+	  System.out.println("First method in FirstTestClass in First package");
+	  
+	 
+	  
+  }
+  @Test
+  public void second() {
+	  System.out.println("Second method in FirsttestClass in Firstpackage");
+  }
+}
+
+
+secondTestClass:-
+
+
+package firstpackage;
+
+import org.testng.annotations.Test;
+
+public class secondTestClass {
+  @Test
+  public void f() {
+	  System.out.println("First method in Second testClass in firstPackage");
+  }
+  @Test
+  public void second() {
+	  System.out.println("Second method in second testclass in firstpackage");
+  }
+}
+
+
+
+
+testng.xml :-
+
+
+<suite name="Test Suite for classes">
+	<test name="testing for classes">
+	<packages>
+		<package name="firstpackage"/>
+	</packages>
+	</test>
+
+</suite>

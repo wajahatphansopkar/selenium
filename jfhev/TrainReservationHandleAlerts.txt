@@ -1,0 +1,59 @@
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TrainReservationHandleAlertsOnThatPage {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+
+ 		driver.get("file:///D:/Flight_Reservation/hotel_search.html");  
+ 		
+ 		WebElement trains_link = driver.findElement(By.linkText("Trains"));
+		trains_link.click();
+		
+		
+		Alert simpleAlert = driver.switchTo().alert();
+		Thread.sleep(5000);
+		
+		String alertMessage1 = simpleAlert.getText();
+		
+		System.out.println("simple alert is :" + alertMessage1);
+		
+		simpleAlert.accept();
+		
+		Thread.sleep(5000);
+		
+		//Handling Prompt Alert
+		
+		WebElement confirm_btn = driver.findElement(By.cssSelector("input[value='Confirm Details']"));
+		confirm_btn.click();
+		
+		Alert promptAlert = driver.switchTo().alert();
+		promptAlert.sendKeys("5");
+		Thread.sleep(3000);
+		
+		promptAlert.accept();
+		
+		Thread.sleep(5000);
+		
+		
+		
+		
+		WebElement book_btn = driver.findElement(By.cssSelector("input[value='Book Tickets']"));
+		book_btn.click();
+		
+		Alert showAlert = driver.switchTo().alert();
+		showAlert.sendKeys("5");
+		Thread.sleep(5000);
+		
+		showAlert.accept();
+		
+		Thread.sleep(5000);
+
+	}
+
+}

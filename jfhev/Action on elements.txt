@@ -1,0 +1,52 @@
+package SelemniumPkg;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ActionOnElements {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "D:\\browserdrivers\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver();
+		
+		driver.get("https://demo.guru99.com/test/selenium-xpath.html");
+		
+		WebElement UserID = driver.findElement(By.name("uid"));
+		UserID.sendKeys("abcd@gmail.com");
+		System.out.println("value of maxlength"+ UserID.getAttribute("maxlength"));
+//		Thread.sleep(5000);
+		UserID.clear();
+		
+		
+		System.out.println("The background color of user id: " + UserID.getCssValue("background-color"));
+		
+		System.out.println("The Font Family of user id : " + UserID.getCssValue("FONT-FAMILY"));
+		
+		
+		
+		System.out.println("The Location of user id : " + UserID.getLocation());
+		
+		System.out.println("The x Location of user id : " + UserID.getLocation().x);
+		System.out.println("The y Location of user id : " + UserID.getLocation().y);
+		
+		
+		System.out.println("The Size of user id : " + UserID.getSize());
+		System.out.println("The width of user id : " + UserID.getSize().width);
+		System.out.println("The height of user id : " + UserID.getSize().height);
+		
+		
+		WebElement label = driver.findElement(By.id("message23"));
+		
+		System.out.println("The Text associated with label is  : " + label.getText());
+		
+	
+		
+		System.out.println("The Tag of user id is  : " + UserID.getTagName());
+				
+//		UserID.submit();
+	}
+
+}

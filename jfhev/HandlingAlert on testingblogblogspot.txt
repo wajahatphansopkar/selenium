@@ -1,0 +1,33 @@
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumScriptToHandleAlert {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		driver.get("http://only-testing-blog.blogspot.com/2013/09/test.html"); 
+ 	 	WebElement alertBtn=driver.findElement(By.cssSelector("input[value='Show Me Alert']")); 
+ 	 	alertBtn.click(); 
+ 	 	Alert simpleAlert=driver.switchTo().alert(); 
+ 	 	Thread.sleep(3000); 
+ 	 	String alertText=simpleAlert.getText();   
+			System.out.println("Alert Text is: "+alertText);   
+			simpleAlert.accept(); 
+	 	 
+ 	 	Thread.sleep(3000); 
+ 	 	WebElement confirmAlertBtn=driver.findElement(By.cssSelector("button[onclick='myFunction()']"));  	 	
+ 	 	confirmAlertBtn.click(); 
+ 	 	Alert ConfirmAlert=driver.switchTo().alert(); 
+ 	 	Thread.sleep(3000); 
+ 	 	String confirmalertText=ConfirmAlert.getText(); 
+	 	System.out.println("Confirmation Alert Text is: "+confirmalertText);  	 	
+	 	simpleAlert.accept(); 
+ 		
+
+	}
+
+}

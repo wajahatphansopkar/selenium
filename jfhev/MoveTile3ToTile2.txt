@@ -1,0 +1,27 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MoveTile3ToTile2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+ 		
+ 		driver.get("file:///C:/Users/windows/Downloads/Sortable.html");
+		
+		WebElement three = driver.findElement(By.name("three"));
+//		WebElement two = driver.findElement(By.name("two"));
+		Actions builder = new Actions(driver);
+		
+		builder.clickAndHold(three).moveByOffset(120, 0);
+		Thread.sleep(2000);
+		builder.release(three);
+//		builder.clickAndHold(three).release(two);
+		builder.perform();
+
+	}
+
+}

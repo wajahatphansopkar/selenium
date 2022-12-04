@@ -1,0 +1,30 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Locate_Elements_Using_XPath {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\browserdrivers\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/selenium-xpath.html");
+		
+		
+		WebElement testing=driver.findElement(By.xpath("*//*[text()='SAP']"));//Absolute xpath
+		System.out.println(testing.getText());
+		
+		
+		WebElement testing1=driver.findElement(By.xpath("//*[contains(@type,'sub')]"));//Absolute xpath
+		System.out.println(testing1.getAttribute("name"));
+		
+		WebElement userid=driver.findElement(By.xpath("//input[@name='uid']"));
+		userid.sendKeys("Axel");
+		
+		WebElement password=driver.findElement(By.xpath("//input[@name='password']"));
+		password.sendKeys("Axel");
+		
+		
+	}
+
+}

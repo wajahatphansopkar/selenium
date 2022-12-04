@@ -1,0 +1,28 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FlightReservationThatHandlsPopUpWindow {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver","D:\\browserdrivers\\chromedriver.exe");
+ 		WebDriver driver = new ChromeDriver();
+
+driver.get("file:///D:/Flight_Reservation/hotel_search.html");  
+	 	 
+	 	WebElement hotels = driver.findElement(By.cssSelector("button[datatarget='#myModal']")); 
+	 	Thread.sleep(3000);  	 	
+	 	hotels.click(); 
+	 	 
+ 	 	WebElement modal_header1 = driver.findElement(By.xpath("//h4[@class='modal-title']")); 
+ 	 	System.out.println("Modal Header is " + modal_header1.getText()); 
+	 	 
+ 	 	WebElement ok_btn = driver.findElement(By.xpath("//button[text()='Ok']")); 
+	 	Thread.sleep(3000);  	 	
+	 	ok_btn.click(); 
+		
+	}
+
+}
