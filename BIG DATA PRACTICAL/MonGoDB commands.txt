@@ -1,0 +1,135 @@
+> show databases
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+> show databases;
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+> db
+test
+> show collections;
+> show collections
+> db
+test
+> use mydb
+switched to db mydb
+> db
+mydb
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+> db.movie.insert({"name":"tutorials point"})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+mydb       0.000GB
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+> use test
+switched to db test
+> db.movie.insert({"name":"tutorials point"})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+test       0.000GB
+> use wajahat
+switched to db wajahat
+> show wajahat
+uncaught exception: Error: don't know how to show [wajahat] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+test       0.000GB
+> use wajahat
+switched to db wajahat
+> db.movie.insert({"name":"tutorials point"})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin      0.000GB
+broadband  0.000GB
+config     0.000GB
+dummy      0.000GB
+local      0.000GB
+test       0.000GB
+wajahat    0.000GB
+> use wajahat
+switched to db wajahat
+> db.createCollection("mycollection")
+{ "ok" : 1 }
+> show collections
+movie
+mycollection
+> db.movie.insertOne({
+... name:"Axel",
+... age:"6 years",
+... species:"Numen",
+... address:"StormHill"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("638e0c4ec0c1dd1775c6b81c")
+}
+> db.movie.insertMany([{name:"Regulus",age:"150",Species:"Elden",Address:"Capital City"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("638e0ce6c0c1dd1775c6b81d")
+        ]
+}
+> db.collection.find()
+> db.collection.findOne()
+null
+> db.movie.find()
+{ "_id" : ObjectId("638e0a2ac0c1dd1775c6b81b"), "name" : "tutorials point" }
+{ "_id" : ObjectId("638e0c4ec0c1dd1775c6b81c"), "name" : "Axel", "age" : "6 years", "species" : "Numen", "address" : "StormHill" }
+{ "_id" : ObjectId("638e0ce6c0c1dd1775c6b81d"), "name" : "Regulus", "age" : "150", "Species" : "Elden", "Address" : "Capital City" }
+>
+> db.movie.update({name:"Xavier",age:"200",Species:"Gods",address:"realm"})
+uncaught exception: Error: need an update object or pipeline :
+DBCollection.prototype._parseUpdate@src/mongo/shell/collection.js:461:15
+DBCollection.prototype.update@src/mongo/shell/collection.js:510:18
+@(shell):1:1
+> db.movie.find()
+{ "_id" : ObjectId("638e0a2ac0c1dd1775c6b81b"), "name" : "tutorials point" }
+{ "_id" : ObjectId("638e0c4ec0c1dd1775c6b81c"), "name" : "Axel", "age" : "6 years", "species" : "Numen", "address" : "StormHill" }
+{ "_id" : ObjectId("638e0ce6c0c1dd1775c6b81d"), "name" : "Regulus", "age" : "150", "Species" : "Elden", "Address" : "Capital City" }
+> db.movie.update({'name':"Axel"},{$set:{'name':"Xavier"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.movie.find()
+{ "_id" : ObjectId("638e0a2ac0c1dd1775c6b81b"), "name" : "tutorials point" }
+{ "_id" : ObjectId("638e0c4ec0c1dd1775c6b81c"), "name" : "Xavier", "age" : "6 years", "species" : "Numen", "address" : "StormHill" }
+{ "_id" : ObjectId("638e0ce6c0c1dd1775c6b81d"), "name" : "Regulus", "age" : "150", "Species" : "Elden", "Address" : "Capital City" }
+> db.movie.remove({'name':"Xavier"})
+WriteResult({ "nRemoved" : 1 })
+> db.movie.find()
+{ "_id" : ObjectId("638e0a2ac0c1dd1775c6b81b"), "name" : "tutorials point" }
+{ "_id" : ObjectId("638e0ce6c0c1dd1775c6b81d"), "name" : "Regulus", "age" : "150", "Species" : "Elden", "Address" : "Capital City" }
+>
+
